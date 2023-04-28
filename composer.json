@@ -29,6 +29,9 @@
   "autoload": {
     "psr-4": {
       "App\\": "app/",
+      "Domains\\": "src/Domains/",
+      "PHPOnline\\": "src/PHPOnline/",
+      "Infrastructure\\": "src/Infrastructure/",
       "Database\\Factories\\": "database/factories/",
       "Database\\Seeders\\": "database/seeders/"
     }
