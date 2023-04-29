@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use App\Models\Article;
+use App\Models\Source;
 use App\Models\User;
 use Domains\Content\Enums\Category;
 use Domains\Content\Enums\Level;
@@ -32,6 +33,7 @@ final class ArticleFactory extends Factory
             'original' => $original = $this->faker->boolean(),
             'canonical_url' => $original
                 ? null : $this->faker->url(),
+            'source_id' => Source::factory(),
             'user_id' => User::factory(),
             'published_at' => now(),
         ];

@@ -30,6 +30,13 @@ return new class extends Migration
             $table->boolean('original')->default(false);
 
             $table
+                ->foreignUlid('source_id')
+                ->nullable()
+                ->index()
+                ->constrained()
+                ->cascadeOnDelete();
+
+            $table
                 ->foreignUlid('user_id')
                 ->nullable()
                 ->index()

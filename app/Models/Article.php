@@ -28,6 +28,7 @@ final class Article extends Model
         'category',
         'canonical_url',
         'original',
+        'source_id',
         'user_id',
         'published_at',
     ];
@@ -49,6 +50,14 @@ final class Article extends Model
         return $this->belongsTo(
             related: User::class,
             foreignKey: 'user_id',
+        );
+    }
+
+    public function source(): BelongsTo
+    {
+        return $this->belongsTo(
+            related: Source::class,
+            foreignKey: 'source_id',
         );
     }
 }

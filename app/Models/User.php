@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -54,6 +55,14 @@ final class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(
             related: Company::class,
             foreignKey: 'company_id',
+        );
+    }
+
+    public function sources(): HasMany
+    {
+        return $this->hasMany(
+            related: Source::class,
+            foreignKey: 'user_id',
         );
     }
 
