@@ -10,7 +10,7 @@ Route::as('static:')->group(
 );
 
 Route::prefix('auth')->as('auth:')->group(static function (): void {
-    Route::prefix('login')->as('login:')->group(
+    Route::middleware(['guest'])->prefix('login')->as('login:')->group(
         base_path('routes/web/login.php'),
     );
     Route::prefix('register')->as('register:')->group(
