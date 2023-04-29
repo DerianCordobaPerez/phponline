@@ -13,8 +13,16 @@ Route::prefix('auth')->as('auth:')->group(static function (): void {
     Route::middleware(['guest'])->prefix('login')->as('login:')->group(
         base_path('routes/web/login.php'),
     );
-    Route::prefix('register')->as('register:')->group(
+    Route::middleware(['guest'])->prefix('register')->as('register:')->group(
         base_path('routes/web/registration.php'),
     );
-    Route::post('logout', SubmitController::class)->name('logout');
+    Route::middleware(['auth'])->group(static function (): void {
+        Route::post('logout', SubmitController::class)->name('logout');
+    });
+});
+
+Route::middleware(['auth'])->group(static function (): void {
+    Route::prefix('sources')->as('sources:')->group(
+        base_path('routes/web/sources.php'),
+    );
 });

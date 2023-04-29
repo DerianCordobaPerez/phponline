@@ -49,10 +49,13 @@ final class ParseFeed extends Command
             array: $feed,
         )->map(fn (array $item) => new FeedEntry(
             title: $reader->resolveTitle($item),
+            description: $reader->resolveDescription($item),
             url: $reader->resolveUrl($item),
             payload: $item,
             createdAt: $reader->resolveCreated($item),
         ));
+
+        dd($items);
 
         $this->components->info(
             string: "Found {$items->count()} entries.",

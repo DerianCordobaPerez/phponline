@@ -11,6 +11,8 @@ final class AddsSlugFromTitle
 {
     public function __construct(Model $model)
     {
-        $model->slug = Str::slug($model->title);
+        $model->slug = Str::slug(
+            title: $model->title . ' ' . now()->timestamp
+        );
     }
 }

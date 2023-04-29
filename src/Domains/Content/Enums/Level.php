@@ -28,4 +28,7 @@ enum Level: string
 
     #[Description('This content is aimed at the most experienced of developers.')]
     case ADVANCED = 'ADVANCED';
+
+    #[Description('This content is from an external source, so is not aimed at any specific level.')]
+    case EXTERNAL = 'EXTERNAL';
 }

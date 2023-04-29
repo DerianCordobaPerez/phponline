@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Models\Article;
 use App\Models\Company;
 use App\Models\JobTitle;
 use App\Models\User;
@@ -31,8 +30,5 @@ final class DatabaseSeeder extends Seeder
             'company_id' => $company->getKey(),
             'job_title_id' => $jobTitle->getKey(),
         ]);
-
-        Article::factory()->for($user)->count(20)->create();
-        Article::factory()->count(30)->create();
     }
 }

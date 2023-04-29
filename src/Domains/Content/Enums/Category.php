@@ -16,4 +16,7 @@ enum Category: string
 
     #[Description('Articles that focus on walking you through something more simple.')]
     case HOW_TO = 'HOW TO';
+
+    #[Description('Articles that come from external sources.')]
+    case EXTERNAL = 'EXTERNAL';
 }
